@@ -36,17 +36,17 @@ const displayDuplicates = (duplicates) => {
     .reduce(
       (acc, curr) => {
         if (duplicates[curr] === getFilledTagsCount()) {
-          acc[0].push(`#${curr}`);
+          acc[0].push(`${curr}`);
         }
         if (duplicates[curr] >= 2) {
-          acc[1].push(`#${curr}`);
+          acc[1].push(`${curr}`);
         }
         return [acc[0], acc[1]];
       },
       [[], []]
     );
-  document.getElementById("duplicate-tags-all").value = fullDuplicates.join(" ");
-  document.getElementById("duplicate-tags-2").value = partialDuplicates.join(" ");
+  document.getElementById("duplicate-tags-all").value = fullDuplicates.join(",");
+  document.getElementById("duplicate-tags-2").value = partialDuplicates.join(",");
 };
 
 const bindChange = (id) =>
