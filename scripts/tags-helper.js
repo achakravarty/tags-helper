@@ -53,7 +53,7 @@ const bindChange = (id) =>
   document.getElementById(id).addEventListener("change", (e) => {
     if (e.target.value) {
       tagsList[e.target.id] = e.target.value
-        .split("#")
+        .split(/#|,/)
         .slice(1)
         .map((str) => str.trim());
       const duplicates = getDuplicates();
